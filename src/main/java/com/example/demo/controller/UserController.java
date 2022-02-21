@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/user") // @RequestMapping 默认映射所有HTTP Action，你可以使用@RequestMapping(method=ActionType)来缩小这个映射
 public class UserController {
 
     @Autowired
@@ -67,7 +67,7 @@ public class UserController {
 //        return userServer.selectUserByName(user.getName());
     }
 
-    //    @PostMapping(value = "/query3") 方法可以依旧是"query3"(多态的原因)，但是postmapping的参数却
+    //    @PostMapping(value = "/query3") 方法可以依旧是"query3"(多态的原因)，但是postmapping的参数却不可以重复
     @PostMapping(value = "/query4")
     public String query3(@RequestBody String jsonString) {
         return jsonString;
@@ -125,7 +125,6 @@ public class UserController {
         return jsonObject;
     }
 
-    // 这种写法明天问问标准不？
     // jsonobject 转 map
     @PostMapping(value = "/query11")
     public Map query11(){
