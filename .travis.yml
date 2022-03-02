@@ -3,11 +3,14 @@ os: linux
 dist: xenial
 jdk:
 - openjdk8
+env:
+  global:
+  - COMMIT=${TRAVIS_COMMIT::7}
 script: mvn clean package -Dmaven.test.skip=true
+
 branches:
- only:
- - main
- 
+  only:
+  - main
 notifications:
- email:
+  email:
   - 1299193255@qq.com
