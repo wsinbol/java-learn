@@ -17,6 +17,10 @@ public class UserController {
     @Autowired
     private UserServer userServer;
 
+    @PostMapping(value = "insert")
+    public int insert(@RequestBody User user){
+        return userServer.insertUser(user);
+    }
 
     // PathVariable example
     // @GetMapping(value = "/query/{name}") // PathVariable用于获取url中的参数，对应访问链接为：localhost:8080/user/query/wang

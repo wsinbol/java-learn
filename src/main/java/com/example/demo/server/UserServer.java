@@ -14,4 +14,9 @@ public class UserServer {
     public User selectUserByName(String name){
         return userDao.findByUserName(name);
     }
+
+
+    public int insertUser(User user){
+        return userDao.insertUser(user);
+    }
 }
